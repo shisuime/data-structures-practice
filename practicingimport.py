@@ -408,81 +408,68 @@ class DLinkedList:
             itr=itr.prev
         print("from back elements",elements)    
 
-
     def getLength(self):
         if self.head is None:
             print("empty")
             return
-        curr=self.head
         total=0
-        while curr is not None:
+        itr=self.head
+        while itr is not None:
             total=total+1
-            curr=curr.next
+            itr=itr.next
         return total
     
-      # def displayfromBack(self):
-    #     if self.head is None:
-    #         print("empty")
-    #         return
-    #     elements=[]
-    #     last_node=self.head
-    #     while last_node.next is not None:
-    #         last_node=last_node.next
-
-    #     while last_node is not None:
-    #         elements.append(last_node.data)
-    #         last_node=last_node.prev
-
-    #     print("prev",elements)    
-    
     def insert_at(self,data,index):
-        if index< 0 and index > self.getLength():
-           print("out of bounds")
-           return
+        if index < 0 or index > self.getLength():
+            print("out of bounds")
+            return
+
         if index == 0:
             if self.head is None:
-               node=Node(data,self.head,None)
-               self.head=node    
+                node= Node(data,self.head,None)
+                self.head=node
             else:
                node=Node(data,self.head,None)
                self.head.prev=node
-               self.head=node
-            return    
-        count =0
+               self.head=node  
+
+        count=0
         itr=self.head
         while itr is not None:
             if count == index-1:
                 node=Node(data,itr.next,itr)
                 if node.next:
                     itr.next.prev=node
-                    
                 itr.next=node
                 break
-            count +=1
-            itr=itr.next
-                    
+            count=count+1
+            itr=itr.next                
+    
     def remove_at(self,index):
-        if(index<0 or index > self.getLength()):
+        if index <0 or index > self.getLength():
             print("out of bounds")
             return
         
         if index == 0:
             self.head=self.head.next
-            self.head.prev=None
-            return
-           
+            if self.head:
+               self.head.prev=None
+            return   
 
-        itr=self.head
         count=0
+        itr=self.head
         while itr is not None:
             if count == index:
                 itr.prev.next=itr.next
                 if itr.next:
                     itr.next.prev=itr.prev
-                
                 break
-            count +=1
+            count=count+1
             itr=itr.next
+
+
+                    
+   
 
 
 
@@ -496,12 +483,36 @@ dObj.insertBehind(5)
 dObj.displayfromFront()
 dObj.displayfromBack()
 var=dObj.getLength()
-dObj.insert_at(11,0)
-print(var)
+dObj.insert_at(11,5)
+# print(var)
 dObj.displayfromFront()
-dObj.displayfromBack()
-print("done")
-dObj.remove_at(5)
-dObj.remove_at(0)
+# dObj.displayfromBack()
+# print("done")
+# dObj.remove_at(5)
+dObj.remove_at(4)
 dObj.displayfromFront()
-dObj.displayfromBack()
+# dObj.displayfromBack()
+
+
+#  def remove_at(self,index):
+#         if(index<0 or index > self.getLength()):
+#             print("out of bounds")
+#             return
+        
+#         if index == 0:
+#             self.head=self.head.next
+#             self.head.prev=None
+#             return
+           
+
+#         itr=self.head
+#         count=0
+#         while itr is not None:
+#             if count == index:
+#                 itr.prev.next=itr.next
+#                 if itr.next:
+#                     itr.next.prev=itr.prev
+                
+#                 break
+#             count +=1
+#             itr=itr.next
