@@ -258,97 +258,250 @@
 
 
 
+# class Node:
+#     def __init__(self,data=None):
+#         self.data=data
+#         self.next=None
+
+
+# class LinkedList:
+#     def __init__(self):
+#         self.head=None
+
+#     def append(self,data):
+#         new_node=Node(data)
+#         if self.head is None:
+#             self.head=new_node
+#             return
+          
+#         curr=self.head 
+#         while curr.next is not None:
+#             curr=curr.next
+#         curr.next= new_node   
+
+#     def findLength(self):
+#         curr=self.head
+#         total=0
+#         while curr is not None:
+#             total=total+1
+#             curr=curr.next
+            
+#         return total               
+
+#     def show(self):
+#         elements=[]
+#         curr=self.head
+#         while curr is not None:
+            
+#             elements.append(curr.data)
+#             curr=curr.next
+#         print ("elements",elements)    
+
+#     def get(self,index):
+        
+#         if (index < 0 or index >= self.findLength()):
+#             print("out of bounds")
+#             return None
+#         curr_node=self.head
+#         curr_index=0
+#         while curr_node is not None:
+            
+#             if(curr_index==index):
+#                 return curr_node.data
+#             curr_index=curr_index+1
+#             curr_node=curr_node.next
+#         return None    
+
+#     def erase(self,index):
+#         if(index<0 or index >= self.findLength()):
+#             print("out of bounds")
+#             return
+        
+#         if index == 0:
+#             if self.head is not None:
+#                 self.head=self.head.next
+#             return
+        
+#         curr_index=0
+#         curr_node=self.head
+       
+
+#         while curr_node is not None and curr_node.next is not None:
+#             if curr_index == index -1:
+#                 curr_node.next=curr_node.next.next
+#                 return
+
+#             curr_node=curr_node.next
+#             curr_index +=1 
+
+
+
+
+
+
+# objLinkedList= LinkedList()
+
+# objLinkedList.append(1)
+# objLinkedList.append(2)
+# objLinkedList.append({"new":"hi"})
+# objLinkedList.show()
+# variable=objLinkedList.findLength()
+# print("total",variable)
+# got=objLinkedList.get(1)
+# print("gotcha",got)
+# objLinkedList.erase(0)
+# objLinkedList.show()
+
+# Double LinkedList
+
 class Node:
-    def __init__(self,data=None):
+    def __init__(self,data=None,next=None,prev=None):
         self.data=data
-        self.next=None
+        self.next=next
+        self.prev=prev
 
-
-class LinkedList:
+class DLinkedList:
     def __init__(self):
         self.head=None
 
-    def append(self,data):
-        new_node=Node(data)
+    def insertFirst(self,data):
         if self.head is None:
-            self.head=new_node
-            return
-          
-        curr=self.head 
-        while curr.next is not None:
-            curr=curr.next
-        curr.next= new_node   
+            node=Node(data,self.head,None)
+            self.head=node
+        else:
+            node=Node(data,self.head,None)
+            self.head.prev=node
+            self.head=node    
+    def insertBehind(self,data):
+        if self.head is None:
+            node=Node(data,None,self.head)
+            self.head=node
+        else:
+            itr=self.head
+            while itr.next is not None:
+                itr=itr.next
+            itr.next=Node(data,None,itr)    
 
-    def findLength(self):
+    def displayfromFront(self):
+        if self.head is None:
+            print("empty list")
+            return
+        
+        elements=[]
+        itr=self.head
+        while itr is not None:
+            elements.append(itr.data)
+            itr=itr.next
+        print("from front elements",elements)
+
+    def displayfromBack(self):
+        if self.head is None:
+            print("empty list")
+            return
+        elements=[]
+        itr=self.head
+        while itr.next is not None:
+            itr=itr.next
+
+        while itr is not None:
+            elements.append(itr.data)
+            itr=itr.prev
+        print("from back elements",elements)    
+
+
+    def getLength(self):
+        if self.head is None:
+            print("empty")
+            return
         curr=self.head
         total=0
         while curr is not None:
             total=total+1
             curr=curr.next
-            
-        return total               
+        return total
+    
+      # def displayfromBack(self):
+    #     if self.head is None:
+    #         print("empty")
+    #         return
+    #     elements=[]
+    #     last_node=self.head
+    #     while last_node.next is not None:
+    #         last_node=last_node.next
 
-    def show(self):
-        elements=[]
-        curr=self.head
-        while curr is not None:
-            
-            elements.append(curr.data)
-            curr=curr.next
-        print ("elements",elements)    
+    #     while last_node is not None:
+    #         elements.append(last_node.data)
+    #         last_node=last_node.prev
 
-    def get(self,index):
-        
-        if (index < 0 or index >= self.findLength()):
-            print("out of bounds")
-            return None
-        curr_node=self.head
-        curr_index=0
-        while curr_node is not None:
-            
-            if(curr_index==index):
-                return curr_node.data
-            curr_index=curr_index+1
-            curr_node=curr_node.next
-        return None    
-
-    def erase(self,index):
-        if(index<0 or index >= self.findLength()):
+    #     print("prev",elements)    
+    
+    def insert_at(self,data,index):
+        if index< 0 and index > self.getLength():
+           print("out of bounds")
+           return
+        if index == 0:
+            if self.head is None:
+               node=Node(data,self.head,None)
+               self.head=node    
+            else:
+               node=Node(data,self.head,None)
+               self.head.prev=node
+               self.head=node
+            return    
+        count =0
+        itr=self.head
+        while itr is not None:
+            if count == index-1:
+                node=Node(data,itr.next,itr)
+                if node.next:
+                    itr.next.prev=node
+                    
+                itr.next=node
+                break
+            count +=1
+            itr=itr.next
+                    
+    def remove_at(self,index):
+        if(index<0 or index > self.getLength()):
             print("out of bounds")
             return
         
         if index == 0:
-            if self.head is not None:
-                self.head=self.head.next
+            self.head=self.head.next
+            self.head.prev=None
             return
-        
-        curr_index=0
-        curr_node=self.head
-       
+           
 
-        while curr_node is not None and curr_node.next is not None:
-            if curr_index == index -1:
-                curr_node.next=curr_node.next.next
-                return
-
-            curr_node=curr_node.next
-            curr_index +=1 
-
-
-
+        itr=self.head
+        count=0
+        while itr is not None:
+            if count == index:
+                itr.prev.next=itr.next
+                if itr.next:
+                    itr.next.prev=itr.prev
+                
+                break
+            count +=1
+            itr=itr.next
 
 
 
-objLinkedList= LinkedList()
+dObj=DLinkedList()
+dObj.insertFirst(1)
+dObj.insertFirst(2)
+dObj.insertFirst(3)
+dObj.insertFirst(4)
+dObj.insertBehind(5)
 
-objLinkedList.append(1)
-objLinkedList.append(2)
-objLinkedList.append({"new":"hi"})
-# objLinkedList.show()
-variable=objLinkedList.findLength()
-print("total",variable)
-got=objLinkedList.get(1)
-print("gotcha",got)
-objLinkedList.erase(0)
-objLinkedList.show()
-
+dObj.displayfromFront()
+dObj.displayfromBack()
+var=dObj.getLength()
+dObj.insert_at(11,0)
+print(var)
+dObj.displayfromFront()
+dObj.displayfromBack()
+print("done")
+dObj.remove_at(5)
+dObj.remove_at(0)
+dObj.displayfromFront()
+dObj.displayfromBack()
