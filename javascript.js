@@ -59,3 +59,19 @@
 // });
 
 // console.log(test);
+// const a = { num: 7 };
+
+// let c = 7;
+// if (a.num == c) {
+//   console.log(true);
+// } else {
+//   console.log(false);
+// }
+function x() {
+  function y() {
+    const a = 7;
+  }
+  console.log(a);
+  y();
+}
+x();
