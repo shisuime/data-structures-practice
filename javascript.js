@@ -67,11 +67,55 @@
 // } else {
 //   console.log(false);
 // }
-function x() {
-  function y() {
-    const a = 7;
+// function x() {
+//   function y() {
+//     const a = 7;
+//   }
+//   console.log(a);
+//   y();
+// }
+// x();
+
+// const func = (str1, str2) => {
+//   let res = "";
+//   let m;
+//   for (let i = 0; i < str1.length && i < str2.length; i++) {
+//     res = res + str1[i] + str2[i];
+//     m = i;
+//   }
+
+//   while (m < str1.length || m < str2.length) {
+//     if (m < str1.length && m !== str1.length) {
+//       res = res + str1[m];
+//       m++;
+//     } else {
+//       res = res + str2[m];
+//       m++;
+//     }
+//   }
+//   console.log(res);
+// };
+
+// func("hello 123", "world");
+
+// const sum = (a) => (b) => console.log(a + b);
+
+// sum(2)(4);
+
+const arr = [
+  [1, 2],
+  [3, 4],
+  [5, 6],
+];
+const res = [];
+const flatIt = (array, res) => {
+  for (let i = 0; i < array.length; i++) {
+    if (Array.isArray(array[i])) {
+      flatIt(array[i], res);
+    } else {
+      res.push(array[i]);
+    }
   }
-  console.log(a);
-  y();
-}
-x();
+  return res;
+};
+console.log(flatIt(arr, res));

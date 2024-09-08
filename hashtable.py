@@ -1,3 +1,4 @@
+import pandas as pd
 # day=("a","b","c")
 # price=[1,2,3]
 # stock_prices={}
@@ -6,6 +7,46 @@
 
 
 # print(stock_prices)
+
+# def __getitem__(self,key):
+#         h=self.get_hash(key)
+
+#         for element in self.arr[h]:
+#             if element[0] == key:
+#                 return element[1]
+        
+
+#     def __setitem__(self,key,val):
+#         h=self.get_hash(key)
+#         found=False
+#         for idx,element in enumerate(self.arr[h]):
+#             if len(element)==2 and element[0]==key:
+#                 self.arr[h][idx]=(key,val)
+#                 found=True
+#                 break
+
+#         if not found:
+#             self.arr[h].append((key,val))
+
+#     def __delitem__(self,key):
+#         h=self.get_hash(key)
+#         for index,element in enumerate(self.arr[h]):
+#             if element[0]==key:
+#                 del self.arr[h][index]
+
+
+
+# t=HashTable()
+# t["march 6"]=16
+# t["march 17"]=18
+
+# print(t["march 6"])
+# # print(t.arr)
+# print(t["march 17"])
+# del t["march 17"]
+# del t["march 6"]
+# print(t.arr)
+# print(t["march 17"])
 
 #hashfunction
 # def get_hash(key):
@@ -16,26 +57,84 @@
 
 # print(get_hash("march 22"))
 
-class HashTable:
-    def __init__(self) :
-        self.MAX=100
-        self.arr=[None for i in range(self.MAX)]
 
-    def get_hash(self,key):
-        h=0
-        for char in key:
-            h +=ord(char)
-        return h % self.MAX
 
-    def add(self,key,val):
-        h=self.get_hash(key)   
-        self.arr[h]=val
+# class HashTable:
+#     def __init__(self) :
+#         self.MAX=10
+#         self.arr=[[] for i in range(self.MAX)]
 
-    def get(self,key):
-        h=self.get_hash(key)
-        return self.arr[h]     
+#     def get_hash(self,key):
+#         h=0
+#         for char in key:
+#             h +=ord(char)
+#         return h % self.MAX
+    
+#     def __setitem__(self,key,value):
+#         h=self.get_hash(key)
+#         found=False
 
-t=HashTable()
-t.add("march6",1120)
-var=t.get("march6")     
-print(t.arr)
+#         for index,element in enumerate(self.arr[h]):
+#             if len(element) == 2 and element[0]==key:
+#                 self.arr[h][index]=(key,value)
+#                 found=True
+#                 break
+
+#         if not found:
+#             self.arr[h].append((key,value))     
+
+#     def __getitem__(self,key):
+#         h=self.get_hash(key)
+
+#         for  element in enumerate(self.arr[h]):
+#              element[0]==key
+#              return element[1]
+
+#     def __delitem__(self,key):
+#             h=self.get_hash(key)
+
+#             for index,element in enumerate(self.arr[h]):
+#                 element[0]==key
+#                 del self.arr[h][index]
+
+#     def averageCount(self,data):
+#         # print(data[1])
+#         # i=0
+#         # res=0
+#         # while i<7:
+#         #   res=res+data[i]
+#         #   i=i+1
+#         # print("total",res/7)
+#         print("average",sum(data[0:7])/7)
+           
+
+#     def maxTemp(self,data):
+#         # max=0
+#         # for elements in data:        
+#         #     if max < elements :
+#         #         max=elements
+            
+#         # print("max temp",max)
+#         print(max(data),"max")
+
+# obj= HashTable()
+# file_path="nyc_weather.csv"
+# df=pd.read_csv(file_path)
+# # print(df["temperature(F)"][1])
+# obj.averageCount(df["temperature(F)"])
+# obj.maxTemp(df["temperature(F)"])
+
+word_count={}
+
+with open("poem.txt","r") as f:
+    for line in f:
+        tokens=line.split(" ")
+        for token in tokens:
+            token=token.replace("\n","")
+            if token in word_count:
+                word_count[token] +=1
+            else:
+                word_count[token]=1    
+
+
+print(word_count)
