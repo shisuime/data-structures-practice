@@ -102,20 +102,73 @@
 
 // sum(2)(4);
 
-const arr = [
-  [1, 2],
-  [3, 4],
-  [5, 6],
-];
-const res = [];
-const flatIt = (array, res) => {
-  for (let i = 0; i < array.length; i++) {
-    if (Array.isArray(array[i])) {
-      flatIt(array[i], res);
-    } else {
-      res.push(array[i]);
-    }
-  }
-  return res;
-};
-console.log(flatIt(arr, res));
+// const arr = [
+//   [1, 2],
+//   [3, 4],
+//   [5, 6],
+// ];
+// const res = [];
+// const flatIt = (array, res) => {
+//   for (let i = 0; i < array.length; i++) {
+//     if (Array.isArray(array[i])) {
+//       flatIt(array[i], res);
+//     } else {
+//       res.push(array[i]);
+//     }
+//   }
+//   return res;
+// };
+// console.log(flatIt(arr, res));
+
+// const arr = [
+//   [1, 2],
+//   [1, 3],
+//   [1, 4],
+// ];
+
+// result = [];
+// function flatiIt(arr, result) {
+//   for (let i = 0; i < arr.length; i++) {
+//     if (Array.isArray(arr[i])) {
+//       flatiIt(arr[i], result);
+//     } else {
+//       result.push(arr[i]);
+//     }
+//   }
+//   return result;
+// }
+
+// console.log(flatiIt(arr, result));
+
+// closure
+
+// function outer() {
+//   let count = 0;
+//   function innerfucntion() {
+//     count++;
+//     console.log(count);
+//   }
+//   return innerfucntion;
+// }
+
+// const counter = outer();
+// counter();
+// counter();
+// counter();
+
+// this keyword
+
+// const obj = {
+//   name: "hi",
+//   showName: function () {
+//     console.log(this);
+//   },
+// };
+// obj.showName();
+
+function Person(name) {
+  this.name = name;
+}
+
+const obj = new Person("john");
+console.log(obj.name);

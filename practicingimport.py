@@ -354,118 +354,118 @@
 
 # Double LinkedList
 
-class Node:
-    def __init__(self,data=None,next=None,prev=None):
-        self.data=data
-        self.next=next
-        self.prev=prev
+# class Node:
+#     def __init__(self,data=None,next=None,prev=None):
+#         self.data=data
+#         self.next=next
+#         self.prev=prev
 
-class DLinkedList:
-    def __init__(self):
-        self.head=None
+# class DLinkedList:
+#     def __init__(self):
+#         self.head=None
 
-    def insertFirst(self,data):
-        if self.head is None:
-            node=Node(data,self.head,None)
-            self.head=node
-        else:
-            node=Node(data,self.head,None)
-            self.head.prev=node
-            self.head=node    
-    def insertBehind(self,data):
-        if self.head is None:
-            node=Node(data,None,self.head)
-            self.head=node
-        else:
-            itr=self.head
-            while itr.next is not None:
-                itr=itr.next
-            itr.next=Node(data,None,itr)    
+#     def insertFirst(self,data):
+#         if self.head is None:
+#             node=Node(data,self.head,None)
+#             self.head=node
+#         else:
+#             node=Node(data,self.head,None)
+#             self.head.prev=node
+#             self.head=node    
+#     def insertBehind(self,data):
+#         if self.head is None:
+#             node=Node(data,None,self.head)
+#             self.head=node
+#         else:
+#             itr=self.head
+#             while itr.next is not None:
+#                 itr=itr.next
+#             itr.next=Node(data,None,itr)    
 
-    def displayfromFront(self):
-        if self.head is None:
-            print("empty list")
-            return
+#     def displayfromFront(self):
+#         if self.head is None:
+#             print("empty list")
+#             return
         
-        elements=[]
-        itr=self.head
-        while itr is not None:
-            elements.append(itr.data)
-            itr=itr.next
-        print("from front elements",elements)
+#         elements=[]
+#         itr=self.head
+#         while itr is not None:
+#             elements.append(itr.data)
+#             itr=itr.next
+#         print("from front elements",elements)
 
-    def displayfromBack(self):
-        if self.head is None:
-            print("empty list")
-            return
-        elements=[]
-        itr=self.head
-        while itr.next is not None:
-            itr=itr.next
+#     def displayfromBack(self):
+#         if self.head is None:
+#             print("empty list")
+#             return
+#         elements=[]
+#         itr=self.head
+#         while itr.next is not None:
+#             itr=itr.next
 
-        while itr is not None:
-            elements.append(itr.data)
-            itr=itr.prev
-        print("from back elements",elements)    
+#         while itr is not None:
+#             elements.append(itr.data)
+#             itr=itr.prev
+#         print("from back elements",elements)    
 
-    def getLength(self):
-        if self.head is None:
-            print("empty")
-            return
-        total=0
-        itr=self.head
-        while itr is not None:
-            total=total+1
-            itr=itr.next
-        return total
+#     def getLength(self):
+#         if self.head is None:
+#             print("empty")
+#             return
+#         total=0
+#         itr=self.head
+#         while itr is not None:
+#             total=total+1
+#             itr=itr.next
+#         return total
     
-    def insert_at(self,data,index):
-        if index < 0 or index > self.getLength():
-            print("out of bounds")
-            return
+#     def insert_at(self,data,index):
+#         if index < 0 or index > self.getLength():
+#             print("out of bounds")
+#             return
 
-        if index == 0:
-            if self.head is None:
-                node= Node(data,self.head,None)
-                self.head=node
-            else:
-               node=Node(data,self.head,None)
-               self.head.prev=node
-               self.head=node  
+#         if index == 0:
+#             if self.head is None:
+#                 node= Node(data,self.head,None)
+#                 self.head=node
+#             else:
+#                node=Node(data,self.head,None)
+#                self.head.prev=node
+#                self.head=node  
 
-        count=0
-        itr=self.head
-        while itr is not None:
-            if count == index-1:
-                node=Node(data,itr.next,itr)
-                if node.next:
-                    itr.next.prev=node
-                itr.next=node
-                break
-            count=count+1
-            itr=itr.next                
+#         count=0
+#         itr=self.head
+#         while itr is not None:
+#             if count == index-1:
+#                 node=Node(data,itr.next,itr)
+#                 if node.next:
+#                     itr.next.prev=node
+#                 itr.next=node
+#                 break
+#             count=count+1
+#             itr=itr.next                
     
-    def remove_at(self,index):
-        if index <0 or index > self.getLength():
-            print("out of bounds")
-            return
+#     def remove_at(self,index):
+#         if index <0 or index > self.getLength():
+#             print("out of bounds")
+#             return
         
-        if index == 0:
-            self.head=self.head.next
-            if self.head:
-               self.head.prev=None
-            return   
+#         if index == 0:
+#             self.head=self.head.next
+#             if self.head:
+#                self.head.prev=None
+#             return   
 
-        count=0
-        itr=self.head
-        while itr is not None:
-            if count == index:
-                itr.prev.next=itr.next
-                if itr.next:
-                    itr.next.prev=itr.prev
-                break
-            count=count+1
-            itr=itr.next
+#         count=0
+#         itr=self.head
+#         while itr is not None:
+#             if count == index:
+#                 itr.prev.next=itr.next
+#                 if itr.next:
+#                     itr.next.prev=itr.prev
+#                 break
+#             count=count+1
+#             itr=itr.next
 
 
                     
@@ -473,46 +473,24 @@ class DLinkedList:
 
 
 
-dObj=DLinkedList()
-dObj.insertFirst(1)
-dObj.insertFirst(2)
-dObj.insertFirst(3)
-dObj.insertFirst(4)
-dObj.insertBehind(5)
+# dObj=DLinkedList()
+# dObj.insertFirst(1)
+# dObj.insertFirst(2)
+# dObj.insertFirst(3)
+# dObj.insertFirst(4)
+# dObj.insertBehind(5)
 
-dObj.displayfromFront()
-dObj.displayfromBack()
-var=dObj.getLength()
-dObj.insert_at(11,5)
+# dObj.displayfromFront()
+# dObj.displayfromBack()
+# var=dObj.getLength()
+# dObj.insert_at(11,5)
 # print(var)
-dObj.displayfromFront()
+# dObj.displayfromFront()
 # dObj.displayfromBack()
 # print("done")
 # dObj.remove_at(5)
-dObj.remove_at(4)
-dObj.displayfromFront()
+# dObj.remove_at(4)
+# dObj.displayfromFront()
 # dObj.displayfromBack()
 
 
-#  def remove_at(self,index):
-#         if(index<0 or index > self.getLength()):
-#             print("out of bounds")
-#             return
-        
-#         if index == 0:
-#             self.head=self.head.next
-#             self.head.prev=None
-#             return
-           
-
-#         itr=self.head
-#         count=0
-#         while itr is not None:
-#             if count == index:
-#                 itr.prev.next=itr.next
-#                 if itr.next:
-#                     itr.next.prev=itr.prev
-                
-#                 break
-#             count +=1
-#             itr=itr.next

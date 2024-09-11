@@ -46,9 +46,16 @@
 #         print(i)
     
         
-studentMarks=int(input("enter marks"))
+# studentMarks=int(input("enter marks"))
 
-if(studentMarks>60 and studentMarks < 100):
-    print("passed")
-else:
-    print("error")
+# if(studentMarks>60 and studentMarks < 100):
+#     print("passed")
+# else:
+#     print("error")
+
+from collections import deque
+
+stack=deque()
+stack.append("hi")
+stack.append("dwa")
+stack.append("hdwadwai")

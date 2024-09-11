@@ -124,17 +124,116 @@ import pandas as pd
 # obj.averageCount(df["temperature(F)"])
 # obj.maxTemp(df["temperature(F)"])
 
-word_count={}
+# word_count={}
 
-with open("poem.txt","r") as f:
-    for line in f:
-        tokens=line.split(" ")
-        for token in tokens:
-            token=token.replace("\n","")
-            if token in word_count:
-                word_count[token] +=1
-            else:
-                word_count[token]=1    
+# with open("poem.txt","r") as f:
+#     for line in f:
+#         tokens=line.split(" ")
+#         for token in tokens:
+#             token=token.replace("\n","")
+#             if token in word_count:
+#                 word_count[token] +=1
+#             else:
+#                 word_count[token]=1    
 
 
-print(word_count)
+# print(word_count)
+
+#Stack
+
+# from collections import deque
+# class Stack:
+#     def __init__(self):
+#         self.container=deque()
+
+#     def push (self,value):
+#         return self.container.append(value)    
+
+#     def pop (self):
+#         return self.container.pop()
+
+#     def size(self):
+#         return len(self.container)
+
+# def reverse_string(string):
+#         obj=Stack()
+
+#         for character in string:
+#             obj.push(character)
+
+
+#         revereseString=""
+#         while obj.size() !=0:
+#             revereseString +=obj.pop()
+
+
+#         return revereseString          
+
+# print(reverse_string("we will conquere covid-19"))
+
+# from collections import deque
+# class Stack:
+#     def __init__(self):
+#         self.container=deque()
+
+#     def push (self,value):
+#         return self.container.append(value)    
+
+#     def pop (self):
+#         return self.container.pop()
+
+#     def size(self):
+#         return len(self.container)
+
+# def is_match(ch1,ch2):
+#       match_dict = {
+#         ')': '(',
+#         ']': '[',
+#         '}': '{'
+#     }
+#       return match_dict[ch1]==ch2
+
+# def isBalanced(string):
+#     stack=Stack()
+
+#     for ch in string:
+#         if ch =="(" or ch =="[" or ch =="{":
+#             stack.push(ch)
+#         if ch ==")" or ch =="]" or ch =="}": 
+#             if stack.size()==0:
+#                 return False
+#             if not is_match(ch,stack.pop()):
+#                 return False  
+
+#     return stack.size()==0
+
+# print(isBalanced("({a+b})"))
+# print(isBalanced("))((a+b}{"))
+# print(isBalanced("((a+b))"))
+# print(isBalanced("((a+g))"))
+# print(isBalanced("))"))
+# print(isBalanced("[a+b]*(x+2y)*{gg+kk}"))
+
+#queue
+
+
+# queue=[]
+# queue.insert(0,2)
+# queue.insert(0,2213)
+# queue.insert(0,32132)
+# print(queue)
+
+# queue.pop()
+# queue.pop()
+# print(queue)
+
+from collections import deque
+q=deque()
+q.appendleft(1)
+q.appendleft(2)
+q.appendleft(3)
+q.appendleft(4)
+q.appendleft(5)
+q.pop()
+print(q)
+
