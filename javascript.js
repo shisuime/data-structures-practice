@@ -166,9 +166,67 @@
 // };
 // obj.showName();
 
-function Person(name) {
-  this.name = name;
+// function Person(name) {
+//   this.name = name;
+// }
+
+// const obj = new Person("john");
+// console.log(obj.name);
+
+// blocking main thread
+
+// console.log("start");
+// function busyWait(duration) {
+//   const now = Date.now();
+//   while (Date.now() - now < duration) {}
+// }
+// busyWait(2000);
+// console.log("end");
+
+// const arr = [1, 2, 3];
+
+// arr[0] = 8;
+// console.log(arr);
+// console.log(arr.length);
+
+// const [, , , , ,a] = [1, 2, 3, 4, 5];
+// const { 4: a } = [1, 2, 3, 4, 5];
+
+// console.log(a);
+
+// function abc() {
+//   console.log("hi");
+// }
+
+// const obj = new abc();
+// console.log(obj);
+
+// const arr = [1, 2, 3];
+
+// function f(i) {
+//   i = 5;
+// }
+// f(arr[2]);
+// console.log(arr);
+
+function pyramid(n) {
+  for (let i = 1; i <= n; i++) {
+    let spaces = "";
+    let stars = "";
+
+    // Add spaces to center the stars
+    for (let j = 1; j <= n - i; j++) {
+      spaces += " "; // Add actual spaces here to center the stars
+    }
+
+    // Add stars
+    for (let k = 1; k <= 2 * i - 1; k++) {
+      stars += "*"; // Add stars to form the pyramid
+    }
+
+    // Combine spaces and stars, then print the line
+    console.log(spaces + stars);
+  }
 }
 
-const obj = new Person("john");
-console.log(obj.name);
+pyramid(5);
