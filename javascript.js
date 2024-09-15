@@ -209,24 +209,93 @@
 // f(arr[2]);
 // console.log(arr);
 
-function pyramid(n) {
-  for (let i = 1; i <= n; i++) {
-    let spaces = "";
-    let stars = "";
+// function pyramid(n) {
+//   for (let i = 1; i <= n; i++) {
+//     let spaces = "";
+//     let stars = "";
 
-    // Add spaces to center the stars
-    for (let j = 1; j <= n - i; j++) {
-      spaces += " "; // Add actual spaces here to center the stars
-    }
+//     // Add spaces to center the stars
+//     for (let j = 1; j <= n - i; j++) {
+//       spaces += " "; // Add actual spaces here to center the stars
+//     }
 
-    // Add stars
-    for (let k = 1; k <= 2 * i - 1; k++) {
-      stars += "*"; // Add stars to form the pyramid
-    }
+//     // Add stars
+//     for (let k = 1; k <= 2 * i - 1; k++) {
+//       stars += "*"; // Add stars to form the pyramid
+//     }
 
-    // Combine spaces and stars, then print the line
-    console.log(spaces + stars);
-  }
-}
+//     // Combine spaces and stars, then print the line
+//     console.log(spaces + stars);
+//   }
+// }
 
-pyramid(5);
+// pyramid(5);
+
+// function find(arr) {
+//   const seen = new Set();
+//   for (let i = 0; i <= arr.length; i++) {
+//     if (seen.has(arr[i])) {
+//       return i;
+//     }
+//     seen.add(arr[i]);
+//   }
+//   return -1;
+// }
+// console.log(find([2, 5, 1, 2, 3, 5, 1, 2, 4]));
+
+// function findNoRepeat(string) {
+//   const arr = string.split();
+//   const seen = new Set();
+//   for (let i = 0; i <= arr.length; i++) {
+//     if (!seen.has(arr[i])) {
+//       return i;
+//     }
+//     seen.add(arr[i]);
+//   }
+//   return -1;
+// }
+// console.log(findNoRepeat("leetcode"));
+
+// function isPallindrome(nums,target) {
+
+// }
+
+// console.log(isPallindrome("-121-"));
+
+// var removeDuplicates = function (nums) {
+//   if (nums.length === 0) return 0;
+//   let j = 0;
+
+//   for (let i = 0; i < nums.length; i++) {
+//     if (nums[i] !== nums[j]) {
+//       j++;
+//       nums[j] = nums[i];
+//     }
+//   }
+//   return nums.slice(0, j + 1);
+// };
+
+// console.log(removeDuplicates([1, 1, 2]));
+
+// var removeElement = function (nums, val) {
+//   if (nums.length < 0 || !nums.includes(val)) {
+//     return [];
+//   }
+//   if (nums.length === 1) {
+//     if (nums[0] === val) return [];
+//     else {
+//       return [nums[0]];
+//     }
+//   }
+
+//   let slowpointer = 0;
+//   for (let fastpointer = 0; fastpointer < nums.length; fastpointer++) {
+//     if (nums[fastpointer] !== val) {
+//       nums[slowpointer] = nums[fastpointer];
+//       slowpointer++;
+//     }
+//   }
+//   return slowpointer;
+// };
+
+// console.log(removeElement([2], 3));
