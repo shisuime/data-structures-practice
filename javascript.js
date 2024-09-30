@@ -299,3 +299,34 @@
 // };
 
 // console.log(removeElement([2], 3));
+// abc = "he";
+// console.log(abc);
+// console.log(global);
+// function abc(x) {
+//   console.log(~~x);
+// }
+
+// abc(1.2);
+// console.log([] == "");
+// function abc(a = 0, b, c) {}
+// console.log("length",abc.length);
+// function pyramid(length) {
+//   for (let i = 1; i <= length; i++) {
+//     let spaces = " ".repeat(length - i);
+//     let stars = "*".repeat(2 * i - 1);
+//     console.log(spaces + stars);
+//   }
+// }
+// pyramid(10);
+
+// console.log(abc);
+// var abc = "hel";
+
+function abc(a) {
+  return function def(b) {
+    console.log("outer", a);
+    console.log("inner", b);
+  };
+}
+
+const closureexample = abc("outside")("inside");

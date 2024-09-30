@@ -58,70 +58,70 @@
 # root=projectTree()
 # root.printTree("both")
 
-class TreeNode:
-    def __init__(self,data,):
-        self.data=data
-        self.children=[] 
-        self.parent =None
+# class TreeNode:
+#     def __init__(self,data,):
+#         self.data=data
+#         self.children=[] 
+#         self.parent =None
         
 
 
-    def addChild(self,child):
-        child.parent=self
-        self.children.append(child)
+#     def addChild(self,child):
+#         child.parent=self
+#         self.children.append(child)
 
-    def printTree(self,level):
-        if self.getLevel() > level:
-            return
+#     def printTree(self,level):
+#         if self.getLevel() > level:
+#             return
 
-        space= " " * self.getLevel() * 3
-        prefix=space+"|--" if self.parent else ""
+#         space= " " * self.getLevel() * 3
+#         prefix=space+"|--" if self.parent else ""
        
-        print(prefix + self.data )
-        if self.children:
-            for child in self.children:
-                child.printTree(level)
-    def getLevel(self):
-        p=self.parent
-        level=0
-        while p is not None:
-            level +=1
-            p=p.parent
-        return level
-def projectTree():
-    root = TreeNode("Global")
+#         print(prefix + self.data )
+#         if self.children:
+#             for child in self.children:
+#                 child.printTree(level)
+#     def getLevel(self):
+#         p=self.parent
+#         level=0
+#         while p is not None:
+#             level +=1
+#             p=p.parent
+#         return level
+# def projectTree():
+#     root = TreeNode("Global")
 
-    india = TreeNode("India")
+#     india = TreeNode("India")
 
-    gujarat = TreeNode("Gujarat")
-    gujarat.addChild(TreeNode("Ahmedabad"))
-    gujarat.addChild(TreeNode("Baroda"))
+#     gujarat = TreeNode("Gujarat")
+#     gujarat.addChild(TreeNode("Ahmedabad"))
+#     gujarat.addChild(TreeNode("Baroda"))
 
-    karnataka = TreeNode("Karnataka")
-    karnataka.addChild(TreeNode("Bangluru"))
-    karnataka.addChild(TreeNode("Mysore"))
+#     karnataka = TreeNode("Karnataka")
+#     karnataka.addChild(TreeNode("Bangluru"))
+#     karnataka.addChild(TreeNode("Mysore"))
 
-    india.addChild(gujarat)
-    india.addChild(karnataka)
+#     india.addChild(gujarat)
+#     india.addChild(karnataka)
 
-    usa = TreeNode("USA")
+#     usa = TreeNode("USA")
 
-    nj = TreeNode("New Jersey")
-    nj.addChild(TreeNode("Princeton"))
-    nj.addChild(TreeNode("Trenton"))
+#     nj = TreeNode("New Jersey")
+#     nj.addChild(TreeNode("Princeton"))
+#     nj.addChild(TreeNode("Trenton"))
 
-    california = TreeNode("California")
-    california.addChild(TreeNode("San Francisco"))
-    california.addChild(TreeNode("Mountain View"))
-    california.addChild(TreeNode("Palo Alto"))
+#     california = TreeNode("California")
+#     california.addChild(TreeNode("San Francisco"))
+#     california.addChild(TreeNode("Mountain View"))
+#     california.addChild(TreeNode("Palo Alto"))
 
-    usa.addChild(nj)
-    usa.addChild(california)
+#     usa.addChild(nj)
+#     usa.addChild(california)
 
-    root.addChild(india)
-    root.addChild(usa)
+#     root.addChild(india)
+#     root.addChild(usa)
 
-    return root
+#     return root
     
 
     
@@ -129,5 +129,9 @@ def projectTree():
    
 
 
-root=projectTree()
-root.printTree(3)
+# root=projectTree()
+# root.printTree(3)
+
+
+# lidwa=[1,2,3,4]
+# print(enumerate(lidwa))
