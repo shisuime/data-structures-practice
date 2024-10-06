@@ -51,42 +51,42 @@
 // circleObj2.draw();
 
 //stopwatch
-function Stopwatch() {
-  let startTime,
-    endTime,
-    running,
-    duration = 0;
+// function Stopwatch() {
+//   let startTime,
+//     endTime,
+//     running,
+//     duration = 0;
 
-  this.start = function () {
-    if (running) {
-      throw new Error("already started");
-    }
-    running = true;
-    startTime = new Date();
-  };
-  this.stop = function () {
-    if (!running) {
-      throw new Error("already stopped");
-    }
-    running = false;
-    endTime = new Date();
+//   this.start = function () {
+//     if (running) {
+//       throw new Error("already started");
+//     }
+//     running = true;
+//     startTime = new Date();
+//   };
+//   this.stop = function () {
+//     if (!running) {
+//       throw new Error("already stopped");
+//     }
+//     running = false;
+//     endTime = new Date();
 
-    const seconds = (endTime.getTime() - startTime.getTime()) / 1000;
-    duration += seconds;
-  };
+//     const seconds = (endTime.getTime() - startTime.getTime()) / 1000;
+//     duration += seconds;
+//   };
 
-  this.reset = function () {
-    startTime = null;
-    endTime = null;
-    duration = 0;
-    running = false;
-  };
+//   this.reset = function () {
+//     startTime = null;
+//     endTime = null;
+//     duration = 0;
+//     running = false;
+//   };
 
-  Object.defineProperty(this, "duration", {
-    get: function () {
-      console.log(duration);
-    },
-  });
-}
-const s = new Stopwatch();
-s.start();
+//   Object.defineProperty(this, "duration", {
+//     get: function () {
+//       console.log(duration);
+//     },
+//   });
+// }
+// const s = new Stopwatch();
+// s.start();
