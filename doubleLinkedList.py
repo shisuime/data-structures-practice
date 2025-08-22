@@ -64,7 +64,23 @@ class DLinkedList:
                     break
             itr=itr.next
             count +=1   
-    def insert_at(self,index,data)        
+    def insert_at(self,index,data)  :
+        if index<0 or index >= self.get_length():
+            raise Exception("index out of bounds")   
+        if index == 0:
+            self.insert_at_begining(data)
+            return
+
+        itr=self.head
+        count=0   
+        while itr:
+            if count == index:
+                itr.prev.next=Node(itr.prev,data,itr)
+                # if itr.next:
+                #     itr.next.prev=itr.prev
+                #     break
+            itr=itr.next
+            count +=1
 
 
 if __name__ == '__main__':
@@ -74,5 +90,5 @@ if __name__ == '__main__':
     dlist.insert_at_end(3)
     dlist.printAll()
     print(dlist.get_length())
-    dlist.insert_at(1,"data")
-    # dlist.printAll()
+    dlist.insert_at(3,"data")
+    dlist.printAll()
