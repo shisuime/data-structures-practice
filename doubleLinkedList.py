@@ -86,6 +86,29 @@ class DLinkedList:
                
             itr=itr.next
             count +=1
+    def remove_by_value(self,data):
+        itr=self.head
+
+        if self.head is None:
+            raise Exception("no data present")
+        
+        if self.head.data == data:
+            if self.head.next:
+
+                self.head.next.prev=None
+            self.head=self.head.next
+            return
+
+        while itr:
+            if itr.data == data:
+                if itr.next:
+                    itr.prev.next=itr.next
+                    itr.next.prev=itr.prev
+                else:
+                    itr.prev.next=None
+                return        
+            itr=itr.next
+        raise Exception("data not found in list")            
 
 
 if __name__ == '__main__':
@@ -96,5 +119,5 @@ if __name__ == '__main__':
     dlist.printAll()
     print(dlist.get_length())
     dlist.insert_at(3,"data")
-    # dlist.remove_at(3)
+    dlist.remove_by_value(1)
     dlist.printAll()
