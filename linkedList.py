@@ -65,6 +65,24 @@ class LinkedList:
             count +=1
             itr=itr.next
 
+    def insert_at(self,index,data):
+        if index < 0 or index > self.getLength():
+            raise Exception("index out of bounds")    
+
+        if index == 0:
+            self.insert_at_beginning(data)  
+            return 
+
+        itr=self.head
+        count =0
+        while itr:
+            if count == index -1 :
+                node=Node(data,itr.next)
+                itr.next=node
+                break
+            count +=1
+            itr=itr.next     
+
 
 if __name__ == '__main__':
     ll=LinkedList()
@@ -74,5 +92,6 @@ if __name__ == '__main__':
     # ll.insert_at_beginning(4)
     # ll.insert_at_end(0)
     ll.insert_values([1,2,3,4,5,6,67])
-    ll.remove_at(4)
+    # ll.remove_at(4)
+    ll.insert_at(7,432)
     ll.print()
