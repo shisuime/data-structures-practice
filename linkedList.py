@@ -82,7 +82,40 @@ class LinkedList:
                 break
             count +=1
             itr=itr.next     
+    def insert_after_value(self,data_after,data_to_insert):
+        if self.head is None:
+            raise Exception("no data present yet")
+        found = False
+        itr=self.head
+        while itr:
+            if(itr.data == data_after):
+                itr.next=Node(data_to_insert,itr.next)
+                found=True
+                break
+            itr=itr.next
+        if not found:
+            raise Exception("data is not present in the list")
+        
+    def remove_by_value(self,data_to_remove):
+        if self.head is None:
+            raise Exception("list is empty")
+        
+        if self.head.data == data_to_remove:
+            self.head=self.head.next
+            return
+        
+        
+        itr=self.head
+        
+        while itr.next:
+            if(itr.next.data == data_to_remove):
+                itr.next=itr.next.next
+                
+                return
+            itr=itr.next
 
+        
+        raise Exception("data is not present in the list")    
 
 if __name__ == '__main__':
     ll=LinkedList()
@@ -93,5 +126,7 @@ if __name__ == '__main__':
     # ll.insert_at_end(0)
     ll.insert_values([1,2,3,4,5,6,67])
     # ll.remove_at(4)
-    ll.insert_at(7,432)
+    # ll.insert_at(7,432)
+    # ll.insert_after_value(34,74)
+    # ll.remove_by_value(2346)
     ll.print()
