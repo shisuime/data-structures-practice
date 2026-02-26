@@ -142,7 +142,26 @@ class DLinkedList:
                 return
             itr=itr.next
 
-        raise Exception("value not found")            
+        raise Exception("value not found")     
+
+    def print_backward(self):
+       
+       if self.head is None:
+           print("no data available")
+           return
+       
+       itr=self.head
+       
+       while itr.next:
+           itr=itr.next
+          
+       lstr=''
+       while itr:
+           lstr +=str(itr.data) + '-->'
+           itr=itr.prev
+       print(lstr)    
+        
+        
 
 if __name__ == '__main__':
     ll=DLinkedList()
@@ -155,5 +174,6 @@ if __name__ == '__main__':
     # ll.remove_at(7)
     # ll.insert_at(1,432)
     # ll.insert_after_value(0,74)
-    ll.remove_by_value(67)
-    ll.print()
+    # ll.remove_by_value(67)
+    # ll.print()
+    ll.print_backward()
