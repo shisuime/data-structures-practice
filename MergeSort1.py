@@ -1,30 +1,36 @@
-def merge_sorted_arrays(arr1,arr2):
-    sorted_list=[]
+def merge_sorted_arrays(arr1,arr2,arr):
+    # sorted_list=[]
     len1=len(arr1)
     len2=len(arr2)    
 
-    i = j = 0
+    i = j = k = 0
 
     while i < len1 and j < len2 :
         if arr1[i] < arr2[j]:
-            sorted_list.append(arr1[i]) 
+            # sorted_list.append(arr1[i]) 
+            arr[k]=arr1[i]
             i +=1
 
         else:
-            sorted_list.append(arr2[j])
+            # sorted_list.append(arr2[j])
+            arr[k]=arr2[j]
             j +=1
-
+        k+=1
     while i < len1:
-        sorted_list.append(arr1[i])
+        # sorted_list.append(arr1[i])
+        arr[k]=arr1[i]
         i+=1
+        k+=1
 
     while j < len2:
-        sorted_list.append(arr2[j])
-        j+=1              
+        # sorted_list.append(arr2[j])
+        arr[k]=arr2[j]
+        j+=1 
+        k+=1             
 
 
 
-    return sorted_list
+    # return sorted_list
 
 
 def merge_sort(array):
@@ -35,11 +41,15 @@ def merge_sort(array):
     left=array[:mid]
     right=array[mid:]
 
-    left=merge_sort(left)
-    print("left",left)
-    right=merge_sort(right)
-    print("right",right)
-    return merge_sorted_arrays(left,right)
+    # left=merge_sort(left)
+    
+    # right=merge_sort(right)
+
+    merge_sort(left)
+    merge_sort(right)
+    
+    # return merge_sorted_arrays(left,right)
+    merge_sorted_arrays(left,right,array)
 
 if __name__ == "__main__":
     # elements1=[5,8,12,56]
@@ -49,7 +59,9 @@ if __name__ == "__main__":
 
     array=[10,3,15,7,8,23,98,29]
 
-    print(merge_sort(array))
+    # print(merge_sort(array))
+    merge_sort(array)
+    print(array)
 
     
 
